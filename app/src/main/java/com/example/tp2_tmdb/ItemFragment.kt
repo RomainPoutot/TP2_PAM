@@ -1,6 +1,7 @@
 package com.example.tp2_tmdb
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,7 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import androidx.lifecycle.lifecycleScope
 import com.example.tp2_tmdb.placeholder.PlaceholderContent
+import kotlinx.coroutines.launch
 
 /**
  * A fragment representing a list of Items.
@@ -22,6 +27,20 @@ class ItemFragment : Fragment() {
 
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val query : String? = arguments?.getString("query")
+        if (query != null) {
+            Log.i("QUERY AFTER", query)
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            var httpManager = HttpManager()
+            if (query != null) {
+                httpManager.requestAPI(query)
+            }
         }
     }
 

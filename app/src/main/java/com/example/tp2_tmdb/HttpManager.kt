@@ -14,12 +14,13 @@ class HttpManager {
     suspend fun requestAPI(query: String) {
         val apiKey = "a66d566f5e158fd47d2876326b8754a2"
         val client = HttpClient()
-        Log.i("myquery", query)
         val response: HttpResponse = client.request("https://api.themoviedb.org/3/search/movie?api_key=$apiKey&query=$query") {
             // Configure request parameters exposed by HttpRequestBuilder
         }
         val stringBody: String = response.receive()
+        //TODO : traiter body, le parser tout ca tout ca la famille
         Log.i("coucou", stringBody)
+
     }
 
 }

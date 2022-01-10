@@ -18,5 +18,9 @@
         android:id="@+id/itemFragment"
         android:name="com.example.tp2_tmdb.ItemFragment"
         android:label="fragment_item_list"
-        tools:layout="@layout/fragment_item_list" />
+        tools:layout="@layout/fragment_item_list" >
+        <argument
+            android:name="query"
+            app:argType="string" />
+    </fragment>
 </navigation>

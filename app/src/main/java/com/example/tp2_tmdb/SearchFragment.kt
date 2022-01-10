@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import io.ktor.client.*
@@ -39,19 +40,19 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val button = view.findViewById<Button>(R.id.button)
+
         button.setOnClickListener {
-            viewLifecycleOwner.lifecycleScope.launch {
-                var httpManager = HttpManager()
-                val query : String = view.findViewById<EditText>(R.id.editText).text.toString()
-                httpManager.requestAPI(query)
-                // ChangeActivity(view)
-            }
+            val query : String = view.findViewById<EditText>(R.id.editText).text.toString()
+            Log.i("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", query)
+            ChangeActivity(view, query)
         }
     }
 
 
-    fun ChangeActivity(view: View) {
-        findNavController().navigate(R.id.action_searchFragment_to_itemFragment)
+    fun ChangeActivity(view: View, query: String) {
+        Log.i("ChangeActivity", "Here we are bruh")
+        val bundle = bundleOf("query" to query)
+        findNavController().navigate(R.id.action_searchFragment_to_itemFragment, bundle)
     }
 
     fun CallTmdbAPI(view: View, toSearch: String) {
