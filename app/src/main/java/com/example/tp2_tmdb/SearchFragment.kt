@@ -7,7 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import io.ktor.client.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import kotlinx.coroutines.launch
+import org.w3c.dom.Text
+import java.io.BufferedInputStream
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.io.Reader
+import java.net.HttpURLConnection
+import java.net.URL
 
 class SearchFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,11 +40,21 @@ class SearchFragment : Fragment() {
 
         val button = view.findViewById<Button>(R.id.button)
         button.setOnClickListener {
-            ChangeActivity(view)
+            viewLifecycleOwner.lifecycleScope.launch {
+                var httpManager = HttpManager()
+                val query : String = view.findViewById<EditText>(R.id.editText).text.toString()
+                httpManager.requestAPI(query)
+                // ChangeActivity(view)
+            }
         }
     }
 
+
     fun ChangeActivity(view: View) {
         findNavController().navigate(R.id.action_searchFragment_to_itemFragment)
+    }
+
+    fun CallTmdbAPI(view: View, toSearch: String) {
+
     }
 }
