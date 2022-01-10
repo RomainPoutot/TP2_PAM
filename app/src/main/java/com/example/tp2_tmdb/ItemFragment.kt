@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.lifecycleScope
-import com.example.tp2_tmdb.placeholder.PlaceholderContent
+import com.example.tp2_tmdb.FilmItem
 import kotlinx.coroutines.launch
 
 /**
@@ -33,9 +33,7 @@ class ItemFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val query : String? = arguments?.getString("query")
-        if (query != null) {
-            Log.i("QUERY AFTER", query)
-        }
+
         viewLifecycleOwner.lifecycleScope.launch {
             var httpManager = HttpManager()
             if (query != null) {
@@ -57,7 +55,8 @@ class ItemFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyItemRecyclerViewAdapter(PlaceholderContent.ITEMS)
+                // TODO : remplir la ligne d'en dessous avec ce qu'il faut (la liste des films à afficher)
+                adapter = MyItemRecyclerViewAdapter()
             }
         }
         return view

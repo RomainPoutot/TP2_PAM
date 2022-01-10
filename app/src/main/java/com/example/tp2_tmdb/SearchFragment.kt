@@ -38,19 +38,16 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val button = view.findViewById<Button>(R.id.button)
 
         button.setOnClickListener {
             val query : String = view.findViewById<EditText>(R.id.editText).text.toString()
-            Log.i("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", query)
             ChangeActivity(view, query)
         }
     }
 
 
     fun ChangeActivity(view: View, query: String) {
-        Log.i("ChangeActivity", "Here we are bruh")
         val bundle = bundleOf("query" to query)
         findNavController().navigate(R.id.action_searchFragment_to_itemFragment, bundle)
     }
