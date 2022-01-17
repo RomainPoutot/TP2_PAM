@@ -42,6 +42,12 @@ class SearchFragment : Fragment() {
 
         button.setOnClickListener {
             val query : String = view.findViewById<EditText>(R.id.editText).text.toString()
+//            viewLifecycleOwner.lifecycleScope.launch {
+//                var httpManager = HttpManager()
+//                if (query != null) {
+//                    httpManager.requestAPI(query)
+//                }
+//            }
             ChangeActivity(view, query)
         }
     }
@@ -49,7 +55,7 @@ class SearchFragment : Fragment() {
 
     fun ChangeActivity(view: View, query: String) {
         val bundle = bundleOf("query" to query)
-        findNavController().navigate(R.id.action_searchFragment_to_itemFragment, bundle)
+        findNavController().navigate(R.id.action_searchFragment_to_filmListFragment, bundle)
     }
 
     fun CallTmdbAPI(view: View, toSearch: String) {

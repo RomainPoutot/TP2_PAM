@@ -11,16 +11,11 @@
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
-            android:id="@+id/action_searchFragment_to_itemFragment"
-            app:destination="@id/itemFragment" />
+            android:id="@+id/action_searchFragment_to_filmListFragment"
+            app:destination="@id/filmListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/itemFragment"
-        android:name="com.example.tp2_tmdb.ItemFragment"
-        android:label="fragment_item_list"
-        tools:layout="@layout/fragment_item_list" >
-        <argument
-            android:name="query"
-            app:argType="string" />
-    </fragment>
+        android:id="@+id/filmListFragment"
+        android:name="com.example.tp2_tmdb.FilmListFragment"
+        android:label="FilmListFragment" />
 </navigation>
