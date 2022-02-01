@@ -42,12 +42,6 @@ class SearchFragment : Fragment() {
 
         button.setOnClickListener {
             val query : String = view.findViewById<EditText>(R.id.editText).text.toString()
-//            viewLifecycleOwner.lifecycleScope.launch {
-//                var httpManager = HttpManager()
-//                if (query != null) {
-//                    httpManager.requestAPI(query)
-//                }
-//            }
             ChangeActivity(view, query)
         }
     }
