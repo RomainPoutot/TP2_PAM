@@ -51,8 +51,4 @@ class SearchFragment : Fragment() {
         val bundle = bundleOf("query" to query)
         findNavController().navigate(R.id.action_searchFragment_to_filmListFragment, bundle)
     }
-
-    fun CallTmdbAPI(view: View, toSearch: String) {
-
-    }
 }
