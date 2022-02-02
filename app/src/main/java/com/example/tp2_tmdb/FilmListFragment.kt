@@ -32,7 +32,6 @@ class FilmListFragment : Fragment() {
 
         var httpManager = HttpManager()
         httpManager.liveData.observe(viewLifecycleOwner) {
-            Log.i("OnViewCreated", "here we are")
             val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
             val adapter = httpManager.liveData.value?.let { it1 -> FilmListAdapter(it1) }
             recyclerView.adapter = adapter
@@ -44,7 +43,6 @@ class FilmListFragment : Fragment() {
             if (query != null) {
                 httpManager.requestAPI(query)
             }
-
         }
     }
 

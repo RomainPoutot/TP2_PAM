@@ -17,5 +17,14 @@
     <fragment
         android:id="@+id/filmListFragment"
         android:name="com.example.tp2_tmdb.FilmListFragment"
-        android:label="FilmListFragment" />
+        android:label="FilmListFragment" >
+        <action
+            android:id="@+id/action_filmListFragment_to_filmDetailFragment"
+            app:destination="@id/filmDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filmDetailFragment"
+        android:name="com.example.tp2_tmdb.FilmDetailFragment"
+        android:label="fragment_film_detail"
+        tools:layout="@layout/fragment_film_detail" />
 </navigation>

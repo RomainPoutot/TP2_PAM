@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp">
+    android:layout_height="200dp"
+    android:clickable="true">
 
     <ImageView
         android:id="@+id/FilmImageView"
         android:layout_width="120dp"
         android:layout_height="180dp"
+        android:clickable="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -53,4 +55,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/FilmImageView"
         app:layout_constraintTop_toBottomOf="@+id/FilmTitle" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
