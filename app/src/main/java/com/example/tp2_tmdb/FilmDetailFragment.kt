@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.launch
 
 class FilmDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,5 +24,11 @@ class FilmDetailFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_film_detail, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val textView: TextView = view.findViewById<TextView>(R.id.textView3)
+        textView.text = arguments?.getString("filmId")
+    }
 
 }

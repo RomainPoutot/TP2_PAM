@@ -42,12 +42,12 @@ class SearchFragment : Fragment() {
 
         button.setOnClickListener {
             val query : String = view.findViewById<EditText>(R.id.editText).text.toString()
-            ChangeActivity(view, query)
+            changeActivity(view, query)
         }
     }
 
 
-    fun ChangeActivity(view: View, query: String) {
+    fun changeActivity(view: View, query: String) {
         val bundle = bundleOf("query" to query)
         findNavController().navigate(R.id.action_searchFragment_to_filmListFragment, bundle)
     }

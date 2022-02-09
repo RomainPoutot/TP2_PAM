@@ -12,8 +12,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListAdapter
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.tp2_tmdb.FilmItem
 import kotlinx.coroutines.launch
 
@@ -33,7 +35,7 @@ class FilmListFragment : Fragment() {
         var httpManager = HttpManager()
         httpManager.liveData.observe(viewLifecycleOwner) {
             val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
-            val adapter = httpManager.liveData.value?.let { it1 -> FilmListAdapter(it1) }
+            val adapter = httpManager.liveData.value?.let { it1 -> FilmListAdapter(it1, this) }
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(activity)
 
@@ -46,13 +48,9 @@ class FilmListFragment : Fragment() {
         }
     }
 
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        val view = inflater.inflate(R.layout.fragment_film_list, container, false)
-//
-//        return view
-//    }
+    fun onFilmItemClicked( filmId: String) {
+        val bundle = bundleOf("filmId" to filmId)
+        findNavController().navigate(R.id.action_filmListFragment_to_filmDetailFragment, bundle)
+    }
 
 }
