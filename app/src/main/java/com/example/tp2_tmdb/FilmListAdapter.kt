@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.squareup.picasso.Picasso
 
 class FilmListAdapter(val films: List<FilmItem>, val filmListFragment: FilmListFragment) : RecyclerView.Adapter<FilmListAdapter.ViewHolder>() {
@@ -41,7 +42,7 @@ class FilmListAdapter(val films: List<FilmItem>, val filmListFragment: FilmListF
         holder.mRatingView.text = films[position].vote_average.toString()
         holder.mOverviewView.text = films[position].overview
         holder.mFilmItemId.text = films[position].id.toString()
-        Picasso.get().load("https://image.tmdb.org/t/p/w300${films[position].poster_path}").into(holder.mImageView);
+        holder.mImageView.load("https://image.tmdb.org/t/p/w300${films[position].poster_path}");
     }
 
     override fun getItemCount(): Int {
