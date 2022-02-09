@@ -4,15 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/pouto/Documents/ISIMA/ZZ3/PAM/TP2_PAM/app/src/main/res/layout/film_item.xml" value="0.33" />
+        <entry key="..\:/Users/pouto/Documents/ISIMA/ZZ3/PAM/TP2_PAM/app/src/main/res/layout/fragment_film_detail.xml" value="0.184375" />
         <entry key="..\:/Users/pouto/Documents/ISIMA/ZZ3/PAM/TP2_PAM/app/src/main/res/layout/fragment_film_list.xml" value="0.33" />
-        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26510416666666664" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.26510416666666664" />
-        <entry key="app/src/main/res/drawable/test.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19882246376811594" />
-        <entry key="app/src/main/res/layout/film_detail_fragment.xml" value="0.1265625" />
-        <entry key="app/src/main/res/layout/film_item.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/film_item_2.xml" value="0.75" />
-        <entry key="app/src/main/res/layout/fragment_film_detail.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/film_item.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/layout/fragment_film_list.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/layout/fragment_item.xml" value="0.19114583333333332" />
         <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.17708333333333334" />
@@ -29,7 +24,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.5" />
+        <option name="scale" value="0.20520833333333333" />
       </ProjectState>
     </option>
   </component>
