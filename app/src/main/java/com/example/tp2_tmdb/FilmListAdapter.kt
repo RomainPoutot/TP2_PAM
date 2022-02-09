@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.squareup.picasso.Picasso
 
 class FilmListAdapter(val films: List<FilmItem>, val filmListFragment: FilmListFragment) : RecyclerView.Adapter<FilmListAdapter.ViewHolder>() {
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {

@@ -15,9 +15,10 @@ import kotlinx.serialization.json.Json
 
 class HttpManager : ViewModel() {
     val liveData: MutableLiveData<List<FilmItem>> = MutableLiveData(null)
+    val filmDetailData: MutableLiveData<FilmDetail> = MutableLiveData(null)
     private val apiKey = "a66d566f5e158fd47d2876326b8754a2"
 
-    suspend fun requestAPI(query: String) {
+    suspend fun requestApiGlobal(query: String) {
         val client = HttpClient()
         val response: HttpResponse = client.request("https://api.themoviedb.org/3/search/movie?api_key=$apiKey&query=$query") {
             // Configure request parameters exposed by HttpRequestBuilder
@@ -29,5 +30,15 @@ class HttpManager : ViewModel() {
         Log.i("Parsed", obj.results[0].toString())
 
         liveData.value = obj.results
+    }
+    suspend fun requestApiDetails(filmId: String) {
+        val client = HttpClient()
+        val response: HttpResponse = client.request("https://api.themoviedb.org/3/movie/$filmId?api_key=$apiKey") {
+            // Configure request parameters exposed by HttpRequestBuilder
+        }
+        val stringBody: String = response.receive()
+        val obj = Json.decodeFromString<FilmDetail>(stringBody)
+
+        filmDetailData.value = obj
     }
 }
