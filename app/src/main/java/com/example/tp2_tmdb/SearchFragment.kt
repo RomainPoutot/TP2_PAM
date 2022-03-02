@@ -1,27 +1,21 @@
 package com.example.tp2_tmdb
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView.OnEditorActionListener
+import android.widget.Toast
 import androidx.core.os.bundleOf
-import androidx.lifecycle.lifecycleScope
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
-import kotlinx.coroutines.launch
-import org.w3c.dom.Text
-import java.io.BufferedInputStream
-import java.io.InputStream
-import java.io.InputStreamReader
-import java.io.Reader
-import java.net.HttpURLConnection
-import java.net.URL
+
 
 class SearchFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,10 +33,21 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val button = view.findViewById<Button>(R.id.button)
+        val editText = view.findViewById<EditText>(R.id.editText)
 
         button.setOnClickListener {
-            val query : String = view.findViewById<EditText>(R.id.editText).text.toString()
+            val query : String = editText.text.toString()
             changeActivity(view, query)
+        }
+
+        editText.setOnEditorActionListener { v, actionId, event ->
+            return@setOnEditorActionListener when (actionId) {
+                EditorInfo.IME_ACTION_DONE -> {
+                    changeActivity(view, editText.text.toString())
+                    true
+                }
+                else -> false
+            }
         }
     }
 
