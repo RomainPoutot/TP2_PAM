@@ -19,8 +19,7 @@
             android:id="@+id/filmDetailPoster"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_gravity="center_horizontal"
             tools:src="@tools:sample/avatars" />
 
         <TextView
