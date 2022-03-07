@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_filmListFragment_to_filmDetailFragment"
             app:destination="@id/filmDetailFragment" />
+        <action
+            android:id="@+id/action_filmListFragment_self"
+            app:destination="@id/filmListFragment" />
     </fragment>
     <fragment
         android:id="@+id/filmDetailFragment"

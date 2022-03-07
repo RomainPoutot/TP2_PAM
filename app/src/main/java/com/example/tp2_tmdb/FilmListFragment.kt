@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -16,6 +18,10 @@ import kotlinx.coroutines.launch
  * A fragment representing a list of Items.
  */
 class FilmListFragment : Fragment() {
+    var query : String? = ""
+    var pageNumber : Int? = 1
+    var maxPageNumber : Int? = 1
+
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? =
@@ -23,20 +29,23 @@ class FilmListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val query : String? = arguments?.getString("query")
+        query = arguments?.getString("query")
+        pageNumber = arguments?.getInt("pageNumber")
 
         var httpManager = HttpManager()
         httpManager.liveData.observe(viewLifecycleOwner) {
             val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
-            val adapter = httpManager.liveData.value?.let { it1 -> FilmListAdapter(it1, this) }
+            val adapter = httpManager.liveData.value?.let { it1 -> FilmListAdapter(it1.results, this) }
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(activity)
-
+            maxPageNumber = httpManager.liveData.value?.total_pages
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
             if (query != null) {
-                httpManager.requestApiGlobal(query)
+                if (pageNumber != null) {
+                    httpManager.requestApiGlobal(query!!, pageNumber!!)
+                }
             }
         }
     }
@@ -44,6 +53,17 @@ class FilmListFragment : Fragment() {
     fun onFilmItemClicked( filmId: String) {
         val bundle = bundleOf("filmId" to filmId)
         findNavController().navigate(R.id.action_filmListFragment_to_filmDetailFragment, bundle)
+    }
+
+    fun goToNextPage(view: View) {
+        if (pageNumber != null) {
+            if (pageNumber!! < maxPageNumber!!) {
+                val bundle = bundleOf("query" to query, "pageNumber" to pageNumber!! + 1)
+                findNavController().navigate(R.id.action_filmListFragment_self, bundle)
+            } else {
+                Toast.makeText(context, "Vous avez atteint la dernière page !", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
 }

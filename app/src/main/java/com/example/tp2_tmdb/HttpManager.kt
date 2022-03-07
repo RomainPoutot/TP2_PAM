@@ -14,13 +14,13 @@ import kotlinx.serialization.json.Json
 
 
 class HttpManager : ViewModel() {
-    val liveData: MutableLiveData<List<FilmItem>> = MutableLiveData(null)
+    val liveData: MutableLiveData<Response> = MutableLiveData(null)
     val filmDetailData: MutableLiveData<FilmDetail> = MutableLiveData(null)
     private val apiKey = "a66d566f5e158fd47d2876326b8754a2"
 
-    suspend fun requestApiGlobal(query: String) {
+    suspend fun requestApiGlobal(query: String, pageNumber: Int) {
         val client = HttpClient()
-        val response: HttpResponse = client.request("https://api.themoviedb.org/3/search/movie?api_key=$apiKey&query=$query") {
+        val response: HttpResponse = client.request("https://api.themoviedb.org/3/search/movie?api_key=$apiKey&query=$query&page=$pageNumber") {
             // Configure request parameters exposed by HttpRequestBuilder
         }
         // TODO : reprendre la doc, il y a moyen de faire que la requete renvoie direct un objet parsed
@@ -29,7 +29,7 @@ class HttpManager : ViewModel() {
         val obj = Json.decodeFromString<Response>(stringBody)
         Log.i("Parsed", obj.results[0].toString())
 
-        liveData.value = obj.results
+        liveData.value = obj
     }
     suspend fun requestApiDetails(filmId: String) {
         val client = HttpClient()
