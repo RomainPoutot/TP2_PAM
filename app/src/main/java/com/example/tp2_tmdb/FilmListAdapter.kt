@@ -42,8 +42,12 @@ class FilmListAdapter(val films: List<FilmItem>, val filmListFragment: FilmListF
             view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.next_page_button, parent, false)
             val nextPageButton = view.findViewById<Button>(R.id.next_page_button)
+            val previousPageButton = view.findViewById<Button>(R.id.previous_page_button)
             nextPageButton.setOnClickListener {
                 filmListFragment.goToNextPage(view)
+            }
+            previousPageButton.setOnClickListener {
+                filmListFragment.goToPreviousPage(view)
             }
         }
 

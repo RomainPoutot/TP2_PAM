@@ -53,7 +53,7 @@ class SearchFragment : Fragment() {
 
 
     fun changeActivity(view: View, query: String) {
-        val bundle = bundleOf("query" to query, "pageNumber" to 182)
+        val bundle = bundleOf("query" to query, "pageNumber" to 1)
         findNavController().navigate(R.id.action_searchFragment_to_filmListFragment, bundle)
     }
 }

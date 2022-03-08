@@ -65,5 +65,15 @@ class FilmListFragment : Fragment() {
             }
         }
     }
+    fun goToPreviousPage(view: View) {
+        if (pageNumber != null) {
+            if (pageNumber!! > 1) {
+                val bundle = bundleOf("query" to query, "pageNumber" to pageNumber!! - 1)
+                findNavController().navigate(R.id.action_filmListFragment_self, bundle)
+            } else {
+                Toast.makeText(context, "Vous avez êtes sur la première page !", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 
 }
