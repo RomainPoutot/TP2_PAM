@@ -56,6 +56,8 @@ class FilmDetailFragment : Fragment() {
             val mReleaseDateView: TextView = view.findViewById(R.id.filmDetailsDate)
             val mReleaseProductionView: TextView = view.findViewById(R.id.filmDetailsProduction)
             val mBudgetView: TextView = view.findViewById(R.id.filmBudget)
+            val mNoteView: TextView = view.findViewById(R.id.filmDetailNote)
+            val mTaglineView: TextView = view.findViewById(R.id.filmDetailTagline)
 
 
             var genreListTemp = ""
@@ -65,6 +67,11 @@ class FilmDetailFragment : Fragment() {
             }
 
             mTitleView.text = filmDetail.title
+
+
+            mTaglineView.text = filmDetail.tagline ?: "Once upon a time ..."
+
+
             mOverviewView.text = filmDetail.overview
             mGenresView.text = genreListTemp
             if (filmDetail.backdrop_path != null) {
@@ -84,24 +91,32 @@ class FilmDetailFragment : Fragment() {
                 productionDetails += "- ${e.name}"
                 if (e.origin_country != null) productionDetails += "(${e.origin_country})"
             }
-            mReleaseProductionView.text = if (productionDetails.isEmpty()) "Unknown" else productionDetails
+            mReleaseProductionView.text = productionDetails.ifEmpty { "Unknown" }
 
-            var economy = ""
-            if (filmDetail.budget != null && filmDetail.budget != 0) economy += "Budget : ${filmDetail.revenue}$\n"
-            if (filmDetail.revenue != null && filmDetail.revenue != 0) economy += "Revenue : ${filmDetail.revenue}$"
-            mBudgetView.text = economy
+            mBudgetView.text = if (filmDetail.budget != null && filmDetail.budget != 0) filmDetail.budget.toString() + "$" else "Unknown"
 
 
-
+            var noteDetails = ""
+            if (filmDetail.vote_average != null) {
+                noteDetails += "${filmDetail.vote_average}/10"
+                if (filmDetail.vote_count != null) {
+                    noteDetails += "(${filmDetail.vote_count} voters)"
+                }
+            }
+            mNoteView.text = if (noteDetails != "") noteDetails else "-"
 
 
 
             var infosView = ""
             infosView += "Original title: " + filmDetail.original_title + "\n"
             infosView += "Original language: " + filmDetail.original_language + "\n"
-            infosView += "Release date: "+ filmDetail.release_date + "\n"
-            //if (filmDetail.budget != null) infosView += "Budget: " + filmDetail.budget + " $\n"
-
+            if (filmDetail.runtime != null && filmDetail.runtime != 0) {
+                val hours = filmDetail.runtime / 60
+                infosView += "Runtime : $hours hours ${filmDetail.runtime - hours * 60} minutes\n"
+            }
+            if (filmDetail.status != null){
+                infosView += "Status : ${filmDetail.status}\n"
+            }
 
             mInfosView.text = infosView
 

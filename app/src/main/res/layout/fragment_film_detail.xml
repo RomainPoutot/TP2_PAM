@@ -47,6 +47,21 @@
             app:layout_constraintTop_toBottomOf="@+id/filmDetailPoster" />
 
         <TextView
+            android:id="@+id/filmDetailTagline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:fadeScrollbars="false"
+            android:text="tagline"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/filmDetailTitle" />
+
+        <TextView
             android:id="@+id/filmDetailOverview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -57,7 +72,36 @@
             android:text="Overview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/filmDetailTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/filmDetailTagline" />
+
+        <TextView
+            android:id="@+id/note"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            android:text="Note"
+            android:textSize="24sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/filmDetailOverview" />
+
+        <TextView
+            android:id="@+id/filmDetailNote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:textSize="16sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="mynote"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/note" />
 
         <TextView
             android:id="@+id/categories"
@@ -72,7 +116,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/filmDetailOverview" />
+            app:layout_constraintTop_toBottomOf="@+id/filmDetailNote" />
 
         <TextView
             android:id="@+id/filmDetailGenres"
@@ -157,7 +201,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
-            android:text="Economy"
+            android:text="Budget"
             android:textSize="24sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
