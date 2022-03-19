@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import kotlinx.coroutines.launch
+import org.w3c.dom.Text
 
 class FilmDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +52,11 @@ class FilmDetailFragment : Fragment() {
             val mOverviewView: TextView = view.findViewById(R.id.filmDetailOverview)
             val mImageView: ImageView = view.findViewById(R.id.filmDetailPoster)
             val mGenresView: TextView = view.findViewById(R.id.filmDetailGenres)
+            val mInfosView: TextView = view.findViewById(R.id.filmDetailAdditionalInfos)
+            val mReleaseDateView: TextView = view.findViewById(R.id.filmDetailsDate)
+            val mReleaseProductionView: TextView = view.findViewById(R.id.filmDetailsProduction)
+            val mBudgetView: TextView = view.findViewById(R.id.filmBudget)
+
 
             var genreListTemp = ""
             filmDetail.genres?.forEach { e ->
@@ -67,6 +73,39 @@ class FilmDetailFragment : Fragment() {
             } else {
                 mImageView.load("https://image.tmdb.org/t/p/w300${filmDetail.poster_path}");
             }
+
+            if (filmDetail.release_date != null) mReleaseDateView.text= filmDetail.release_date
+            else mReleaseDateView.text= "Unknown"
+
+
+            var productionDetails = ""
+            filmDetail.production_companies?.forEach { e ->
+                if (productionDetails != "") productionDetails += "\n"
+                productionDetails += "- ${e.name}"
+                if (e.origin_country != null) productionDetails += "(${e.origin_country})"
+            }
+            mReleaseProductionView.text = if (productionDetails.isEmpty()) "Unknown" else productionDetails
+
+            var economy = ""
+            if (filmDetail.budget != null && filmDetail.budget != 0) economy += "Budget : ${filmDetail.revenue}$\n"
+            if (filmDetail.revenue != null && filmDetail.revenue != 0) economy += "Revenue : ${filmDetail.revenue}$"
+            mBudgetView.text = economy
+
+
+
+
+
+
+            var infosView = ""
+            infosView += "Original title: " + filmDetail.original_title + "\n"
+            infosView += "Original language: " + filmDetail.original_language + "\n"
+            infosView += "Release date: "+ filmDetail.release_date + "\n"
+            //if (filmDetail.budget != null) infosView += "Budget: " + filmDetail.budget + " $\n"
+
+
+            mInfosView.text = infosView
+
+
         }
     }
 
