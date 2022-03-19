@@ -52,9 +52,11 @@ class FilmDetailFragment : Fragment() {
             val mImageView: ImageView = view.findViewById(R.id.filmDetailPoster)
             val mGenresView: TextView = view.findViewById(R.id.filmDetailGenres)
 
-            var genreListTemp = "Genres : \n"
-            genreListTemp += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-            filmDetail.genres?.forEach { e -> genreListTemp = "$genreListTemp    - ${e.name}, \n" }
+            var genreListTemp = ""
+            filmDetail.genres?.forEach { e ->
+                genreListTemp = if (genreListTemp.isEmpty()) "${e.name}";
+                else "$genreListTemp, ${e.name}"
+            }
 
             mTitleView.text = filmDetail.title
             mOverviewView.text = filmDetail.overview
