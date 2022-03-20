@@ -12,16 +12,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Title"
+        android:hint="@string/title"
         android:imeOptions="actionDone"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Star"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.863"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/textView2"
@@ -41,7 +41,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
+        android:text="@string/search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editText"
         app:layout_constraintStart_toStartOf="@+id/editText"
@@ -52,6 +52,7 @@
         android:id="@+id/imageView2"
         android:layout_width="300dp"
         android:layout_height="200dp"
+        android:contentDescription="@string/the_movie_database"
         android:src="@drawable/tmdb_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

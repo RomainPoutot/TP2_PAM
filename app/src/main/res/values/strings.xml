@@ -17,4 +17,5 @@
     <string name="previous_page">Previous Page</string>
     <string name="no_result_found_try_with_different_keywords">No result found, try with different keywords</string>
     <string name="back_to_the_homepage">Back to the homepage</string>
+    <string name="search">Search</string>
 </resources>
