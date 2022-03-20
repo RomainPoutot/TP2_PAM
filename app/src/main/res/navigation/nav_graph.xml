@@ -24,10 +24,21 @@
         <action
             android:id="@+id/action_filmListFragment_self"
             app:destination="@id/filmListFragment" />
+        <action
+            android:id="@+id/action_filmListFragment_to_noResultPage"
+            app:destination="@id/noResultPage" />
     </fragment>
     <fragment
         android:id="@+id/filmDetailFragment"
         android:name="com.example.tp2_tmdb.FilmDetailFragment"
         android:label="fragment_film_detail"
         tools:layout="@layout/fragment_film_detail" />
+    <fragment
+        android:id="@+id/noResultPage"
+        android:name="com.example.tp2_tmdb.NoResultPage"
+        android:label="NoResultPage" >
+        <action
+            android:id="@+id/action_noResultPage_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
 </navigation>

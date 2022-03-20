@@ -34,11 +34,16 @@ class FilmListFragment : Fragment() {
 
         var httpManager = HttpManager()
         httpManager.liveData.observe(viewLifecycleOwner) {
-            val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
-            val adapter = httpManager.liveData.value?.let { it1 -> FilmListAdapter(it1.results, this) }
-            recyclerView.adapter = adapter
-            recyclerView.layoutManager = LinearLayoutManager(activity)
-            maxPageNumber = httpManager.liveData.value?.total_pages
+            if (httpManager.liveData.value?.results?.size != 0) {
+                val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+                val adapter =
+                    httpManager.liveData.value?.let { it1 -> FilmListAdapter(it1.results, this) }
+                recyclerView.adapter = adapter
+                recyclerView.layoutManager = LinearLayoutManager(activity)
+                maxPageNumber = httpManager.liveData.value?.total_pages
+            } else {
+                findNavController().navigate(R.id.action_filmListFragment_to_noResultPage)
+            }
         }
 
         viewLifecycleOwner.lifecycleScope.launch {

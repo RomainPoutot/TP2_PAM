@@ -27,7 +27,6 @@ class HttpManager : ViewModel() {
         val stringBody: String = response.receive()
         Log.i("coucou", stringBody)
         val obj = Json.decodeFromString<Response>(stringBody)
-        Log.i("Parsed", obj.results[0].toString())
 
         liveData.value = obj
     }
