@@ -89,7 +89,7 @@ class FilmDetailFragment : Fragment() {
             filmDetail.production_companies?.forEach { e ->
                 if (productionDetails != "") productionDetails += "\n"
                 productionDetails += "- ${e.name}"
-                if (e.origin_country != null) productionDetails += "(${e.origin_country})"
+                if (e.origin_country != null) productionDetails += " (${e.origin_country})"
             }
             mReleaseProductionView.text = productionDetails.ifEmpty { "Unknown" }
 

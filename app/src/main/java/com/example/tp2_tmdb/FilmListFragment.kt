@@ -76,7 +76,7 @@ class FilmListFragment : Fragment() {
                 val bundle = bundleOf("query" to query, "pageNumber" to pageNumber!! - 1)
                 findNavController().navigate(R.id.action_filmListFragment_self, bundle)
             } else {
-                Toast.makeText(context, "Vous avez êtes sur la première page !", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Vous êtes sur la première page !", Toast.LENGTH_LONG).show();
             }
         }
     }
