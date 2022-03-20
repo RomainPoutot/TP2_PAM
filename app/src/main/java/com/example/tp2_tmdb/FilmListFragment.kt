@@ -66,7 +66,7 @@ class FilmListFragment : Fragment() {
                 val bundle = bundleOf("query" to query, "pageNumber" to pageNumber!! + 1)
                 findNavController().navigate(R.id.action_filmListFragment_self, bundle)
             } else {
-                Toast.makeText(context, "Vous avez atteint la dernière page !", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "You reached the last page !", Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -76,7 +76,7 @@ class FilmListFragment : Fragment() {
                 val bundle = bundleOf("query" to query, "pageNumber" to pageNumber!! - 1)
                 findNavController().navigate(R.id.action_filmListFragment_self, bundle)
             } else {
-                Toast.makeText(context, "Vous êtes sur la première page !", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "You are already on the first page !", Toast.LENGTH_LONG).show();
             }
         }
     }

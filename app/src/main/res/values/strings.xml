@@ -2,5 +2,19 @@
     <string name="app_name">TP2_TMDB</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="placeholder_search_bar">Veuillez entrer un titre de film</string>
+    <string name="placeholder_search_bar">Please enter the name of a movie :</string>
+    <string name="note">Note</string>
+    <string name="genres">Genres</string>
+    <string name="release_date">Release Date</string>
+    <string name="production">Production</string>
+    <string name="budget">Budget</string>
+    <string name="additional_informations">Additional Informations</string>
+    <string name="film_banner">Film banner</string>
+    <string name="title">Title</string>
+    <string name="search">Search</string>
+    <string name="the_movie_database">The Movie Database</string>
+    <string name="next_page">Next Page</string>
+    <string name="previous_page">Previous Page</string>
+    <string name="no_result_found_try_with_different_keywords">No result found, try with different keywords</string>
+    <string name="back_to_the_homepage">Back to the homepage</string>
 </resources>

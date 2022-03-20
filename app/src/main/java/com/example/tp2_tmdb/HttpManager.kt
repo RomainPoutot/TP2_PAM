@@ -23,9 +23,7 @@ class HttpManager : ViewModel() {
         val response: HttpResponse = client.request("https://api.themoviedb.org/3/search/movie?api_key=$apiKey&query=$query&page=$pageNumber") {
             // Configure request parameters exposed by HttpRequestBuilder
         }
-        // TODO : reprendre la doc, il y a moyen de faire que la requete renvoie direct un objet parsed
         val stringBody: String = response.receive()
-        Log.i("coucou", stringBody)
         val obj = Json.decodeFromString<Response>(stringBody)
 
         liveData.value = obj

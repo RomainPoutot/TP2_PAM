@@ -22,7 +22,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/film_banner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -38,13 +38,13 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:fadeScrollbars="false"
-            android:text="title"
             android:textAlignment="center"
             android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/filmDetailPoster" />
+            app:layout_constraintTop_toBottomOf="@+id/filmDetailPoster"
+            tools:text="Title" />
 
         <TextView
             android:id="@+id/filmDetailTagline"
@@ -54,12 +54,12 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="10dp"
             android:fadeScrollbars="false"
-            android:text="tagline"
             android:textSize="18sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/filmDetailTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/filmDetailTitle"
+            tools:text="Tagline" />
 
         <TextView
             android:id="@+id/filmDetailOverview"
@@ -69,10 +69,10 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             android:justificationMode="inter_word"
-            android:text="Overview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/filmDetailTagline" />
+            app:layout_constraintTop_toBottomOf="@+id/filmDetailTagline"
+            tools:text="Overview" />
 
         <TextView
             android:id="@+id/note"
@@ -82,7 +82,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
-            android:text="Note"
+            android:text="@string/note"
             android:textSize="24sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -94,14 +94,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:textSize="16sp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:text="mynote"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/note" />
+            app:layout_constraintTop_toBottomOf="@+id/note"
+            tools:text="mynote" />
 
         <TextView
             android:id="@+id/categories"
@@ -111,7 +111,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
-            android:text="Genres"
+            android:text="@string/genres"
             android:textSize="24sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -123,15 +123,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:textSize="16sp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:text="cat1, cat2, cat3"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/categories"
-            tools:layout_editor_absoluteX="177dp" />
+            tools:text="cat1, cat2, cat3" />
 
         <TextView
             android:id="@+id/releaseDate"
@@ -141,7 +140,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
-            android:text="Release Date"
+            android:text="@string/release_date"
             android:textSize="24sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -153,15 +152,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:textSize="16sp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:text="date"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/releaseDate"
-            tools:layout_editor_absoluteX="177dp" />
+            tools:text="date" />
 
         <TextView
             android:id="@+id/productionInfo"
@@ -171,7 +169,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
-            android:text="Production"
+            android:text="@string/production"
             android:textSize="24sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -183,15 +181,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:textSize="16sp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:text="production"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/productionInfo"
-            tools:layout_editor_absoluteX="177dp" />
+            tools:text="production" />
 
         <TextView
             android:id="@+id/budgetInfo"
@@ -201,7 +198,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
-            android:text="Budget"
+            android:text="@string/budget"
             android:textSize="24sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -213,15 +210,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:textSize="16sp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:text="budget"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/budgetInfo"
-            tools:layout_editor_absoluteX="177dp" />
+            tools:text="budget" />
 
 
 
@@ -250,7 +246,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
-            android:text="Additional Informations"
+            android:text="@string/additional_informations"
             android:textSize="24sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -262,15 +258,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:textSize="16sp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:text="infos"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/additionalInfos"
-            tools:layout_editor_absoluteX="177dp" />
+            tools:text="infos" />
 
 
 

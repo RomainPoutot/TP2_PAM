@@ -35,7 +35,6 @@ class FilmDetailFragment : Fragment() {
 
         var httpManager = HttpManager()
         httpManager.filmDetailData.observe(viewLifecycleOwner) {
-            Log.i("OnViewCreated FilmDetailFragment", httpManager.filmDetailData.value.toString())
             bindData(view, httpManager.filmDetailData.value);
         }
 
@@ -75,7 +74,6 @@ class FilmDetailFragment : Fragment() {
             mOverviewView.text = filmDetail.overview
             mGenresView.text = genreListTemp
             if (filmDetail.backdrop_path != null) {
-                Log.i("bindData FilmDetailFragment", "banner exists")
                 mImageView.load("https://image.tmdb.org/t/p/w1280${filmDetail.backdrop_path}");
             } else {
                 mImageView.load("https://image.tmdb.org/t/p/w300${filmDetail.poster_path}");
