@@ -37,13 +37,23 @@ class SearchFragment : Fragment() {
 
         button.setOnClickListener {
             val query : String = editText.text.toString()
-            changeActivity(view, query)
+            if (query == "") {
+                Toast.makeText(context, "You must enter something first", Toast.LENGTH_LONG).show()
+            } else {
+                changeActivity(view, query)
+            }
         }
 
         editText.setOnEditorActionListener { v, actionId, event ->
             return@setOnEditorActionListener when (actionId) {
                 EditorInfo.IME_ACTION_DONE -> {
-                    changeActivity(view, editText.text.toString())
+                    val query : String = editText.text.toString()
+                    if (query == "") {
+                        Toast.makeText(context, "You must enter something first", Toast.LENGTH_LONG).show()
+                    }
+                    else {
+                        changeActivity(view, query)
+                    }
                     true
                 }
                 else -> false
